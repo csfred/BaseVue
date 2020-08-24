@@ -7,11 +7,17 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'App',
-      components:{
-        default: App,
-        'Partners':Partners
-      }
+      name: 'App'
+    },
+    {
+      path: '/partners',
+      name: 'Partners', 
+      component: () => import('@/views/Partners')
+    },
+    {
+      path: '/hello',
+      name: 'HelloWorld',
+      component: () => import('@/components/HelloWorld')
     }
   ]
 });

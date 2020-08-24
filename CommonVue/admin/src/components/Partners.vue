@@ -1,5 +1,6 @@
 <template>
-  <el-col :span = "14" class="partners">
-    <span class ="el-dropdown-link" @click="logout">退出</span>
-  </el-col>
+  <el-row>
+     <el-button>Test</el-button>
+     <router-view/>
+  </el-row>
 </template>

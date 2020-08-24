@@ -1,11 +1,8 @@
 <template>
   <div id="app">
-    <h1>这是起始页</h1>
+    <h1>欢迎使用Vue</h1>
     <img src="./assets/logo.png">
-    <router-view></router-view>
-    <div class="container">
-        <router-view name="Partners"></router-view>
-      </div>
+    <router-view/>
   </div>
 </template>
 
