@@ -125,8 +125,8 @@
   </div>
 </template>
 <script>
-import { getAllUsers, addUser, editUser, updateUserState, delUserById } from "@/api/user_index.js";
-import { getAllRoleList } from "@/api/role_index.js";
+import { getAllUsers, addUser, editUser, updateUserState, delUserById } from '@/api/user_index.js'
+import { getAllRoleList } from '@/api/role_index.js'
 export default {
   data() {
     return {
@@ -134,31 +134,31 @@ export default {
       roleList: [],
       grantDialogFormVisible: false,
       grantForm: {
-        username: "",
+        username: '',
         // 用户id
-        id: "",
+        id: '',
         // 角色id
-        rid: ""
+        rid: ''
       },
       editDialogFormVisible: false,
       editForm: {
-        username: "",
-        email: "",
-        mobile: "",
-        id: ""
+        username: '',
+        email: '',
+        mobile: '',
+        id: ''
       },
       addDialogFormVisible: false,
       addForm: {
-        username: "",
-        password: "",
-        email: "",
-        mobile: ""
+        username: '',
+        password: '',
+        email: '',
+        mobile: ''
       },
       total: 0,
       status: true,
       userList: [],
       userobj: {
-        query: "",
+        query: '',
         pagenum: 1,
         pagesize: 5
       },
@@ -166,41 +166,41 @@ export default {
         username: [
           {
             required: true,
-            message: "请输入用户名",
-            trigger: "blur"
+            message: '请输入用户名',
+            trigger: 'blur'
           }
         ],
         password: [
           {
             required: true,
-            message: "请输入密码",
-            trigger: "blur"
+            message: '请输入密码',
+            trigger: 'blur'
           }
         ],
         email: [
           {
             required: true,
-            message: "请输入邮箱",
-            trigger: "blur"
+            message: '请输入邮箱',
+            trigger: 'blur'
           },
           {
             // 添加正则表达式
             pattern: /\w+[@]\w+[.]\w+/,
-            message: "请输入合法的电子邮箱",
-            trigger: "blur"
+            message: '请输入合法的电子邮箱',
+            trigger: 'blur'
           }
         ],
         mobile: [
           {
             required: true,
-            message: "请输入手机号",
-            trigger: "blur"
+            message: '请输入手机号',
+            trigger: 'blur'
           },
           {
             // 添加正则表达式
             pattern: /^1\d{10}$/,
-            message: "请输入合法的手机号",
-            trigger: "blur"
+            message: '请输入合法的手机号',
+            trigger: 'blur'
           }
         ]
       }
@@ -230,7 +230,7 @@ export default {
             this.total = res.data.data.total;
           } else if (res.data.meta.status === 400) {
             this.$message.error(res.data.meta.msg);
-            this.$router.push({ name: "login" });
+            this.$router.push({ name: 'login' });
           }
         })
         .catch(err => {
@@ -245,7 +245,7 @@ export default {
             .then(res => {
               console.log(res);
               if (res.data.meta.status === 201) {
-                this.$message.success("添加用户成功");
+                this.$message.success('添加用户成功');
                 this.init();
                 this.addDialogFormVisible = false;
                 // 清空表单元素的数据--重置表单元素
@@ -254,10 +254,10 @@ export default {
             })
             .catch(err => {
               console.log(err);
-              this.$message.success("用户新增失败");
+              this.$message.success('用户新增失败');
             });
         } else {
-          this.$message.warning("请输入所有必填数据");
+          this.$message.warning('请输入所有必填数据');
         }
       });
     },
@@ -276,7 +276,7 @@ export default {
         .then(res => {
           console.log(res);
           if (res.data.meta.status === 200) {
-            this.$message.success("编辑用户成功");
+            this.$message.success('编辑用户成功');
             this.init();
             this.editDialogFormVisible = false;
             // 清空表单元素的数据--重置表单元素
@@ -284,7 +284,7 @@ export default {
           }
         })
         .catch(() => {
-          this.$message.success("用户编辑失败");
+          this.$message.success('用户编辑失败');
         });
     },
     // 打开分配角色对话框
@@ -312,10 +312,10 @@ export default {
             }
           })
           .catch(() => {
-            this.$message.success("用户编辑失败");
+            this.$message.success('用户编辑失败');
           });
       } else {
-        this.$message.error("请选择角色");
+        this.$message.error('请选择角色');
       }
     }, // 修改用户状态
     changeState(id, type) {
@@ -323,21 +323,21 @@ export default {
         .then(res => {
           if (res.data.meta.status === 200) {
             this.$message({
-              type: "success",
-              message: "修改状态成功!"
+              type: 'success',
+              message: '修改状态成功!'
             });
             this.init();
           } else {
             this.$message({
-              type: "error",
+              type: 'error',
               message: res.data.meta.msg
             });
           }
         })
         .catch(() => {
           this.$message({
-            type: "error",
-            message: "修改状态失败"
+            type: 'error',
+            message: '修改状态失败'
           })
         })
     },
@@ -381,7 +381,7 @@ export default {
   },
   mounted() {
     this.init();
-    console.log("mounted()方法内初始化数据并显示");
+    console.log('mounted()方法内初始化数据并显示');
     // 加载角色列表数据
     getAllRoleList()
       .then(res => {
