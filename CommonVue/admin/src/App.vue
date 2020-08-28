@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <h1>欢迎使用Vue</h1>
-    <img src="./assets/logo.png">
+    <!--<img src="./assets/logo.png">-->
     <router-view/>
   </div>
 </template>
@@ -18,7 +18,10 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  /*text-align: center;
+  color: #2c3e50;*/
+  color: #16b1a4;
+  margin-top: 5px;
+  width: 100%;
 }
 </style>
